@@ -56,31 +56,18 @@ pip install -r requirements.txt
 在项目根目录创建 `yuanbao_model_sessions.txt` 文件，并添加您的模型会话配置：
 
 ```
-# 格式：模型名称:session_id:x_token
-deepseek_v3:your_session_id:your_x_token
-deepseek_r1:your_session_id:your_x_token
+# 格式：
+x_token:your_x_token
 ```
 
-**获取 会话 id(即session_id) 和 hy_token 的方法：**
+**获取 hy_token 的方法：**
 1. 登录腾讯元宝网站
 2. 打开浏览器开发者工具（F12）
 3. 切换到 Network 标签页
 4. 发送一条消息给 Deepseek 模型
 5. 找到 `https://yuanbao.tencent.com/api/user/agent/conversation/v1/detail` 请求
 6. 从该请求的 Cookie 中获取 `hy_token`
-7. 从该请求的响应中获取会话 `id`（即 session_id）
-
-   例如响应格式：
-   ```json
-   {
-       "id": "xxx-xxx-xx-xxx-xxxxxxxx",(这个就是会话 id)
-       "userId": "xxxxxxx",
-       "stopGenerating": false,
-       "sensitive": false,
-       "title": "问候与初步交流"
-   }
-   ```
-8. 复制这些值到配置文件中
+7. 复制hy_token值到配置文件中
 
 ### 2. 启动服务
 
